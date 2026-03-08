@@ -8,6 +8,7 @@ const links = [
   { label: "REVIEWS", href: "#reviews" },
   { label: "ABOUT", href: "#about" },
   { label: "CONTACT", href: "#contact" },
+  { label: "JOIN GROUP", href: "https://t.me/ROOT_JAGAN", external: true },
 ];
 
 export default function Navbar() {
