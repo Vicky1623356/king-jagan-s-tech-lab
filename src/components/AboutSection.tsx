@@ -2,45 +2,42 @@ import { motion } from "framer-motion";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="relative py-24 px-4 grid-bg overflow-hidden">
-      {/* Maa Kali glow background */}
+    <section id="about" className="relative py-12 sm:py-16 md:py-24 px-4 sm:px-6 grid-bg overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.04]">
-        <div className="text-[20rem] leading-none select-none">🙏</div>
+        <div className="text-[10rem] sm:text-[15rem] md:text-[20rem] leading-none select-none">🙏</div>
       </div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, hsl(280 100% 50% / 0.08) 0%, transparent 70%)",
-        }}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[400px] md:w-[600px] h-[300px] sm:h-[400px] md:h-[600px] rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(circle, hsl(280 100% 50% / 0.08) 0%, transparent 70%)" }}
       />
 
       <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-10 md:mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="font-mono text-muted-foreground text-sm tracking-[0.3em] mb-2">
+          <p className="font-mono text-muted-foreground text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] mb-2">
             {"// ABOUT.SYS"}
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-glow text-foreground tracking-wider mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-glow text-foreground tracking-wider mb-3 sm:mb-4">
             ABOUT
           </h2>
-          <div className="h-[2px] w-32 mx-auto bg-gradient-to-r from-transparent via-primary to-transparent" />
+          <div className="h-[2px] w-24 sm:w-32 mx-auto bg-gradient-to-r from-transparent via-primary to-transparent" />
         </motion.div>
 
         <motion.div
-          className="p-8 md:p-12 rounded-lg neon-border glass-dark scanline"
+          className="p-5 sm:p-8 md:p-12 rounded-lg neon-border glass-dark scanline"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
         >
-          <div className="font-mono text-xs text-muted-foreground mb-6">
+          <div className="font-mono text-[10px] sm:text-xs text-muted-foreground mb-4 sm:mb-6 overflow-x-auto">
             {">"} cat /home/kingjagan/about.txt
           </div>
           
-          <div className="space-y-4 font-body text-base md:text-lg text-muted-foreground leading-relaxed">
+          <div className="space-y-3 sm:space-y-4 font-body text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
             <p>
               <span className="text-foreground font-semibold text-glow">KING JAGAN</span> is a professional Mobile Repair Engineer 
               specializing in both software and hardware solutions. With years of expertise in mobile technology, 
@@ -55,26 +52,25 @@ export default function AboutSection() {
               every service is handled with precision and care.
             </p>
             
-            <div className="pt-4 border-t border-border/30">
-              <p className="text-foreground font-display text-xl tracking-wider text-center">
+            <div className="pt-3 sm:pt-4 border-t border-border/30">
+              <p className="text-foreground font-display text-base sm:text-lg md:text-xl tracking-wider text-center">
                 All Mobile Services Available Online 🔥🔥🔥
               </p>
             </div>
 
-            <div className="pt-4 text-center">
-              <p className="text-neon-purple font-display text-sm tracking-widest uppercase">
+            <div className="pt-3 sm:pt-4 text-center">
+              <p className="text-neon-purple font-display text-xs sm:text-sm tracking-widest uppercase">
                 🙏 जय माँ काली 🙏
               </p>
-              <p className="font-mono text-xs text-muted-foreground mt-1">
+              <p className="font-mono text-[10px] sm:text-xs text-muted-foreground mt-1">
                 Devoted Maa Kali Bhakt
               </p>
             </div>
           </div>
 
-          {/* Terminal cursor */}
-          <div className="mt-6 font-mono text-xs text-muted-foreground flex items-center gap-1">
+          <div className="mt-4 sm:mt-6 font-mono text-[10px] sm:text-xs text-muted-foreground flex items-center gap-1">
             <span>{">"}</span>
-            <span className="inline-block w-2 h-4 bg-primary animate-pulse-glow" />
+            <span className="inline-block w-2 h-3 sm:h-4 bg-primary animate-pulse-glow" />
           </div>
         </motion.div>
       </div>
