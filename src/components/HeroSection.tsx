@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Scene3D from "./Scene3D";
+import logo from "@/assets/logo.png";
 
 export default function HeroSection() {
   return (
@@ -12,14 +13,18 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <motion.p
-            className="font-mono text-muted-foreground text-sm md:text-base tracking-[0.3em] uppercase mb-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
+          <motion.div
+            className="flex justify-center mb-8"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
           >
-            {"// SYSTEM INITIALIZED"}
-          </motion.p>
+            <img
+              src={logo}
+              alt="KING JAGAN Logo"
+              className="w-40 h-40 md:w-56 md:h-56 rounded-full border-2 border-primary/40 box-glow"
+            />
+          </motion.div>
           
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-black text-glow text-foreground mb-4 tracking-wider">
             KING JAGAN
@@ -62,7 +67,6 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
         animate={{ y: [0, 10, 0] }}
