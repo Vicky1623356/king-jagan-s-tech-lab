@@ -57,6 +57,22 @@ export default function ContactSection() {
             </div>
             <div className="absolute inset-0 rounded-lg bg-accent/0 group-hover:bg-accent/5 transition-all duration-500" />
           </motion.a>
+
+          <motion.a
+            href="https://t.me/ROOT_JAGAN"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative flex items-center gap-3 sm:gap-4 px-6 sm:px-10 py-4 sm:py-5 rounded-lg neon-border glass-dark hover:box-glow transition-all duration-500"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <span className="text-2xl sm:text-4xl">👥</span>
+            <div className="text-left">
+              <span className="font-display text-sm sm:text-lg tracking-wider text-foreground block">JOIN GROUP</span>
+              <span className="font-mono text-[10px] sm:text-xs text-muted-foreground">Telegram Group</span>
+            </div>
+            <div className="absolute inset-0 rounded-lg bg-primary/0 group-hover:bg-primary/5 transition-all duration-500" />
+          </motion.a>
         </motion.div>
 
         <motion.div
