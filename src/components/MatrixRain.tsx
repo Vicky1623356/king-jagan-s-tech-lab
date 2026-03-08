@@ -18,15 +18,14 @@ export default function MatrixRain() {
     window.addEventListener("resize", resize);
 
     const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>{}[]=/\\";
-    const fontSize = 14;
+    const fontSize = 16;
     const columns = Math.floor(canvas.width / fontSize);
-    const drops: number[] = new Array(columns).fill(1).map(() => Math.random() * -100);
+    const drops: number[] = new Array(columns).fill(1).map(() => Math.random() * -50);
 
     const draw = () => {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = "#00ff0015";
       ctx.font = `${fontSize}px monospace`;
 
       for (let i = 0; i < drops.length; i++) {
@@ -34,26 +33,34 @@ export default function MatrixRain() {
         const x = i * fontSize;
         const y = drops[i] * fontSize;
 
-        // Vary brightness
         const brightness = Math.random();
-        if (brightness > 0.95) {
-          ctx.fillStyle = "#00ff0040";
-        } else if (brightness > 0.8) {
-          ctx.fillStyle = "#00ff0020";
+        if (brightness > 0.92) {
+          // Bright head character
+          ctx.fillStyle = "#00ff00";
+          ctx.shadowColor = "#00ff00";
+          ctx.shadowBlur = 8;
+        } else if (brightness > 0.7) {
+          ctx.fillStyle = "rgba(0, 255, 0, 0.7)";
+          ctx.shadowBlur = 0;
+        } else if (brightness > 0.4) {
+          ctx.fillStyle = "rgba(0, 255, 0, 0.4)";
+          ctx.shadowBlur = 0;
         } else {
-          ctx.fillStyle = "#00ff0010";
+          ctx.fillStyle = "rgba(0, 255, 0, 0.2)";
+          ctx.shadowBlur = 0;
         }
 
         ctx.fillText(char, x, y);
+        ctx.shadowBlur = 0;
 
-        if (y > canvas.height && Math.random() > 0.975) {
+        if (y > canvas.height && Math.random() > 0.96) {
           drops[i] = 0;
         }
         drops[i]++;
       }
     };
 
-    const interval = setInterval(draw, 50);
+    const interval = setInterval(draw, 40);
 
     return () => {
       clearInterval(interval);
@@ -65,7 +72,7 @@ export default function MatrixRain() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 z-0 pointer-events-none"
-      style={{ opacity: 0.6 }}
+      style={{ opacity: 1 }}
     />
   );
 }
