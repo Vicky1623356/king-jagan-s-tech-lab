@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import logo from "@/assets/logo.png";
 
 const links = [
   { label: "HOME", href: "#" },
@@ -14,8 +15,11 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-dark border-b border-border/30">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <a href="#" className="font-display text-lg font-bold text-foreground tracking-wider text-glow">
-          KJ
+        <a href="#" className="flex items-center gap-3">
+          <img src={logo} alt="KING JAGAN" className="h-10 w-10 rounded-full" />
+          <span className="font-display text-sm font-bold text-foreground tracking-wider text-glow hidden sm:inline">
+            KING JAGAN
+          </span>
         </a>
         
         {/* Desktop */}
@@ -40,7 +44,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div
