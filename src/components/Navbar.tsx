@@ -8,6 +8,7 @@ const links = [
   { label: "REVIEWS", href: "#reviews" },
   { label: "ABOUT", href: "#about" },
   { label: "CONTACT", href: "#contact" },
+  { label: "JOIN GROUP", href: "https://t.me/ROOT_JAGAN", external: true },
 ];
 
 export default function Navbar() {
@@ -23,12 +24,17 @@ export default function Navbar() {
           </span>
         </a>
         
-        <div className="hidden md:flex gap-4 lg:gap-8">
+        <div className="hidden md:flex gap-4 lg:gap-8 items-center">
           {links.map((l) => (
             <a
               key={l.label}
               href={l.href}
-              className="font-display text-[10px] lg:text-xs tracking-[0.15em] lg:tracking-[0.2em] text-muted-foreground hover:text-foreground hover:text-glow transition-all duration-300"
+              {...(l.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              className={`font-display text-[10px] lg:text-xs tracking-[0.15em] lg:tracking-[0.2em] transition-all duration-300 ${
+                l.external
+                  ? "text-primary hover:text-glow px-3 py-1 neon-border rounded-md hover:box-glow"
+                  : "text-muted-foreground hover:text-foreground hover:text-glow"
+              }`}
             >
               {l.label}
             </a>
@@ -56,8 +62,13 @@ export default function Navbar() {
                 <a
                   key={l.label}
                   href={l.href}
+                  {...(l.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   onClick={() => setOpen(false)}
-                  className="font-display text-xs tracking-[0.2em] text-muted-foreground hover:text-foreground transition-all py-1"
+                  className={`font-display text-xs tracking-[0.2em] transition-all py-1 ${
+                    l.external
+                      ? "text-primary hover:text-glow"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
                 >
                   {l.label}
                 </a>
