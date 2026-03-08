@@ -48,70 +48,24 @@ export default function AboutSection() {
 
               {/* Photo container with glitch effect */}
               <div className="relative overflow-hidden neon-border border-t-0 rounded-b-lg">
-                {/* Scanline overlay */}
-                <div className="absolute inset-0 z-20 pointer-events-none opacity-30"
-                  style={{
-                    background: "repeating-linear-gradient(0deg, transparent, transparent 2px, hsl(120 100% 50% / 0.03) 2px, hsl(120 100% 50% / 0.03) 4px)",
-                  }}
-                />
-
-                {/* Glitch lines */}
-                <motion.div
-                  className="absolute inset-0 z-10 pointer-events-none"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                >
-                  {[...Array(5)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute left-0 right-0 h-[2px] bg-primary/40"
-                      style={{ top: `${15 + i * 18}%` }}
-                      animate={{
-                        x: [0, 10, -5, 3, 0],
-                        opacity: [0, 1, 0.5, 1, 0],
-                        scaleX: [1, 1.5, 0.8, 1.2, 1],
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        delay: i * 0.6,
-                        ease: "easeInOut",
-                      }}
-                    />
-                  ))}
-                </motion.div>
-
-                {/* The photo with reveal animation */}
+                {/* The photo */}
                 <motion.div
                   className="relative"
                   initial={{ 
                     clipPath: "inset(100% 0% 0% 0%)",
-                    filter: "hue-rotate(90deg) saturate(3) brightness(2)",
                   }}
                   whileInView={{
                     clipPath: "inset(0% 0% 0% 0%)",
-                    filter: "hue-rotate(0deg) saturate(1) brightness(1)",
                   }}
                   viewport={{ once: true }}
                   transition={{ 
                     clipPath: { duration: 2, ease: [0.25, 0.1, 0.25, 1] },
-                    filter: { duration: 3, delay: 0.5 },
                   }}
                 >
                   <img
                     src={kingjaganPhoto}
                     alt="KING JAGAN at work"
                     className="w-full h-auto object-cover"
-                  />
-                  {/* Green tint overlay */}
-                  <motion.div
-                    className="absolute inset-0"
-                    initial={{ opacity: 0.6 }}
-                    whileInView={{ opacity: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 3, delay: 1 }}
-                    style={{ background: "linear-gradient(180deg, hsl(120 100% 50% / 0.3) 0%, hsl(120 100% 20% / 0.5) 100%)" }}
                   />
                 </motion.div>
 
