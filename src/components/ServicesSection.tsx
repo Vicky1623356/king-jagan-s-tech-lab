@@ -62,7 +62,7 @@ export default function ServicesSection() {
                       loading="lazy"
                       className="w-full h-48 sm:h-56 md:h-64 lg:h-80 object-cover transition-transform duration-700 group-hover:scale-105 md:group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent" />
                     <span className="absolute top-3 left-3 sm:top-4 sm:left-4 font-mono text-[10px] sm:text-xs tracking-widest px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-primary/20 text-primary border border-primary/30">
                       {service.tag}
                     </span>
